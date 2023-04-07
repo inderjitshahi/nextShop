@@ -48,6 +48,7 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
   });
 
   const signUpHandler = async (e) => {
+    e.preventDefault();
     try {
       setLoading(true);
       const { data } = await axios.post('/api/auth/signup', {
@@ -72,7 +73,8 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
     }
   }
 
-  const signInHandler = async () => {
+  const signInHandler = async (e) => {
+    e.preventDefault();
     setLoading(true);
     let options = {
       redirect: false,
