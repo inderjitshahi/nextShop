@@ -1,1 +1,38 @@
-$red-color:blue;
+$blue-color:#2f82ff;
+$gray-color:#f8f8f8;
+$shadow-1:rgba(99,99,99,.2) 0px 2px 8px 0px;
+$light-error-color:#fd010169;
+$error-color:#ed4557;
+$success-color:#6cc070;
+.btn_primary{
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   background: $blue-color;
+   border-radius: 2px;
+   color: white;
+   font-weight: 600;
+   cursor: pointer;
+   width: 100%;
+   text-transform: uppercase;
+}
+.btn_outlined{
+   display: flex; 
+   align-items: center;
+   justify-content: center;
+   gap: 5px;
+   background:$gray-color;
+   border-radius: 2px;
+   color: $blue-color;
+   font-weight: 600;
+   cursor: pointer;
+   width: 100%;
+   text-transform: uppercase;
+}
+
+.flex{
+   display: flex;
+   align-items: center;
+   gap:5px;
+}

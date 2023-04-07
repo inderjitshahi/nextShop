@@ -1,0 +1,5 @@
+validation both server and client
+api validation using postman
+jwt
+rgx
+for email see 6.17-6.19 video lecture

@@ -5,7 +5,7 @@ function Ad(props) {
     return (
         <Link href={'/browse'}>
             <div className={styles.ad}>
-                ad                
+                <p>Advertisement</p>               
             </div>
         </Link>
     );
