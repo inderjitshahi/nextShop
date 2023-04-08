@@ -6,13 +6,13 @@ function Links() {
         <div className={styles.footer_links}>
             {
                 links.map((link, i) => (
-                    <ul>
+                    <ul key={i+link.heading}>
                         {
-                            i === 0 ?(<img src='/App_Logo/svg/logo-color.svg' alt="logo"/>):<b>{link.heading}</b>
+                            i === 0 ?(<img key={0} src='/App_Logo/svg/logo-color.svg' alt="logo"/>):<b>{link.heading}</b>
                        }
-                        {link.links.map(link => (
-                            <li>
-                                <Link href={link.link} className={styles.link_text}>{link.name}</Link>
+                        {link.links.map((link,j) => (
+                            <li key={j*100+link.name}>
+                                <Link  href={link.link} className={styles.link_text}>{link.name}</Link>
                             </li>
                         ))}
                     </ul>

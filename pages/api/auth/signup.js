@@ -5,6 +5,7 @@ import { validateEmail } from '@/utils/validation';
 import User from '@/models/Users';
 import { createActivationToken } from '@/utils/tokens';
 import { sendEmail } from '@/utils/sendEmail';
+import { activateEmailTemplate } from '@/emails/activateEmailTemplate';
 const handler = nc();
 
 handler.post(async (req, res) => {
@@ -31,7 +32,7 @@ handler.post(async (req, res) => {
             id:addedUser._id.toString(),
         })
         const url=`${process.env.BASE_URL}/activate/${activationToken}`
-        sendEmail(email,url,"","Activate Your ISShop Account.");
+        sendEmail(email,url,"","Activate Your ISShop Account.",activateEmailTemplate);
         await db.disconnectDb();
         res.json({message:"Sign Up Successful, Please Look into your Mailbox to Activate Account."})
         // res.send({ url });

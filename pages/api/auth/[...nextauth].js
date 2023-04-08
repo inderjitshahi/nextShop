@@ -27,11 +27,11 @@ export default NextAuth({
             clientId: process.env.GITHUB_ID,
             clientSecret: process.env.GITHUB_SECRET
         }),
-        Auth0Provider({
-            clientId: process.env.AUTH0_CLIENT_ID,
-            clientSecret: process.env.AUTH0_CLIENT_SECRET,
-            issuer: process.env.AUTH0_ISSUER
-        }),
+        // Auth0Provider({
+        //     clientId: process.env.AUTH0_CLIENT_ID,
+        //     clientSecret: process.env.AUTH0_CLIENT_SECRET,
+        //     issuer: process.env.AUTH0_ISSUER
+        // }),
         CredentialsProvider({
             // The name to display on the sign in form (e.g. "Sign in with...")
             name: "Credentials",

@@ -24,7 +24,6 @@ const initialValues = {
   login_error: "",
 }
 export default function signin({ country, providers, callbackUrl, csrfToken }) {
-  console.log(providers);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState(initialValues);
   const { login_email, login_password, name, email, password, confirm_password, success, error, login_error } = user;
@@ -32,7 +31,6 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
   }
-  // console.log(user);
   const loginValidation = Yup.object({
     login_email: Yup.string().required("Email is required").email('Please enter a valid email address'),
     login_password: Yup.string().required("Password is required").test('len', 'Min 3 characters', (val) => val.toString().length >= 3),
@@ -48,7 +46,6 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
   });
 
   const signUpHandler = async (e) => {
-    e.preventDefault();
     try {
       setLoading(true);
       const { data } = await axios.post('/api/auth/signup', {
@@ -74,7 +71,6 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
   }
 
   const signInHandler = async (e) => {
-    e.preventDefault();
     setLoading(true);
     let options = {
       redirect: false,
@@ -147,7 +143,7 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
                       <span className={styles.error}>{login_error}</span>
                     }
                     <div className={styles.forgot}>
-                      <Link href={'/forget'}>Forgot Password?</Link>
+                      <Link href={'/auth/forgot'}>Forgot Password?</Link>
                     </div>
                   </Form>
                 )
@@ -165,7 +161,9 @@ export default function signin({ country, providers, callbackUrl, csrfToken }) {
                     }
                     return (
                       <div key={provider.name}>
-                        <button className={styles.social_btn} onClick={() => signIn(provider.id)}>
+                        <button className={styles.social_btn} onClick={() => signIn(provider.id,{
+                          redirect:'/',
+                        })}>
                           <img src={`/Social_Icons/${provider.name}.svg`}></img>
                           Sign In With {provider.name}
                         </button>
@@ -250,7 +248,6 @@ export async function getServerSideProps(context) {
   const { req, query } = context;
   const session = await getSession({ req });
   const { callbackUrl } = query;
-  console.log(callbackUrl);
   const csrfToken = await getCsrfToken(context);
   const providers = Object.values(await getProviders());
 

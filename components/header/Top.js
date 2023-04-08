@@ -38,19 +38,19 @@ function Top({country}) {
                         onMouseLeave={() => setVisible(false)}
                     >
                         {
-                            session ? <li className={styles.li}>
+                            session ? <div className={styles.li}>
                                 <div className={styles.flex}>
                                     <img src={session.user.image} className={styles.img} />
                                     <span>{session.user.name}</span>
                                     <RiArrowDropDownLine />
                                 </div>
-                            </li> : <li className={styles.li}>
+                            </div> : <div className={styles.li}>
                                 <div className={styles.flex} >
                                     <RiAccountPinCircleLine />
                                     <span>Account</span>
                                     <RiArrowDropDownLine />
                                 </div>
-                            </li>
+                            </div>
                         }
                         {visible && <UserMenu session={session} />}
                     </li>

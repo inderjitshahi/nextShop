@@ -10,9 +10,9 @@ export default function Copyright({country}) {
             <section>
                 <ul>
                     {
-                        data.map((link)=>(
-                            <li>
-                                <Link href={link.link}>{link.name}</Link>
+                        data.map((link,i)=>(
+                            <li key={i+link.name}>
+                                <Link  href={link.link}>{link.name}</Link>
                             </li>
                         ))
                     }

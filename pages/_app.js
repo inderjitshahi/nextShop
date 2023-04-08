@@ -16,7 +16,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       <meta name="description" content="Online shopping at fingertips" />
       <meta name="author" content="Inderjit Shahi" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="/Logo_Circular.png" />
+      <link rel="icon" href="/App_Logo/svg/logo-color.svg" />
     </Head>
 
     <SessionProvider session={session}>
